@@ -40,8 +40,8 @@ int main() {
 			if (e.type == Event::Closed)
 				app.close();
 			if (e.type == Event::MouseButtonPressed)
-				if (e.key.code == Mouse::Left) sgrid[x][y]=grid[x][y];
-				else if (e.key.code == Mouse::Right) sgrid[x][y]=11;
+				if (e.mouseButton.button == Mouse::Left) sgrid[x][y]=grid[x][y];
+				else if (e.mouseButton.button == Mouse::Right) sgrid[x][y]=11;
 		}
 		app.clear(Color::White);
 		for (int i=1; i<=10; i++)

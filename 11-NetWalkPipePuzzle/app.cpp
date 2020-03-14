@@ -109,7 +109,7 @@ int main() {
 			if (e.type == Event::Closed)
 				app.close();
 			if (e.type == Event::MouseButtonPressed)
-				if (e.key.code == Mouse::Left) {
+				if (e.mouseButton.button == Mouse::Left) {
 					Vector2i pos = Mouse::getPosition(app) + Vector2i(ts/2,ts/2) - Vector2i(offset);
 					pos/=ts;
 					if (isOut(pos)) continue;
