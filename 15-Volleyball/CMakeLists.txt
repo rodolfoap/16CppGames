@@ -18,9 +18,9 @@ execute_process(COMMAND sed "s/^/\t/" CMakeLists.txt
 # Equivalent to (CFLAGS) -g
 set(CMAKE_C_FLAGS "-g")
 
+find_package(Box2D REQUIRED)
 find_package(SFML 2.5 COMPONENTS graphics audio REQUIRED)
 set(SFML_STATIC_LIBRARIES TRUE)
 
 add_executable(app app.cpp)
-
-target_link_libraries(app sfml-graphics sfml-window sfml-system)
+target_link_libraries(app sfml-graphics sfml-window sfml-system Box2D)

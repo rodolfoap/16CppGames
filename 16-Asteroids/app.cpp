@@ -1,4 +1,5 @@
 #include <SFML/Graphics.hpp>
+#include <math.h>
 #include <time.h>
 #include <list>
 using namespace sf;
