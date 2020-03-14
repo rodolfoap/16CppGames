@@ -1,6 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include <time.h>
-#include "connector.hpp"
+//#include "connector.hpp"
 using namespace sf;
 
 int size = 56;
@@ -64,7 +64,7 @@ void loadPosition() {
 
 int main() {
 	RenderWindow window(VideoMode(504, 504), "The Chess! (press SPACE)");
-	ConnectToEngine("stockfish.exe");
+	//ConnectToEngine("stockfish.exe");
 	Texture t1,t2;
 	t1.loadFromFile("images/figures.png");
 	t2.loadFromFile("images/board.png");
@@ -88,7 +88,7 @@ int main() {
 				{ if (position.length()>6) position.erase(position.length()-6,5); loadPosition();}
 			/////drag and drop///////
 			if (e.type == Event::MouseButtonPressed)
-				if (e.key.code == Mouse::Left)
+				if (e.mouseButton.button == Mouse::Left)
 					for(int i=0; i<32; i++)
 						if (f[i].getGlobalBounds().contains(pos.x,pos.y)) {
 							isMove=true; n=i;
@@ -97,7 +97,7 @@ int main() {
 							oldPos  =  f[i].getPosition();
 						}
 			if (e.type == Event::MouseButtonReleased)
-				if (e.key.code == Mouse::Left) {
+				if (e.mouseButton.button == Mouse::Left) {
 					isMove=false;
 					Vector2f p = f[n].getPosition() + Vector2f(size/2,size/2);
 					newPos = Vector2f( size*int(p.x/size), size*int(p.y/size) );
@@ -108,6 +108,7 @@ int main() {
 				}
 		}
 		//comp move
+		/* Disabled: uses Windows comm resources
 		if (Keyboard::isKeyPressed(Keyboard::Space)) {
 			str =  getNextMove(position);
 			oldPos = toCoord(str[0],str[1]);
@@ -125,7 +126,7 @@ int main() {
 			}
 			move(str);  position+=str+" ";
 			f[n].setPosition(newPos);
-		}
+		} */
 		if (isMove) f[n].setPosition(pos.x-dx,pos.y-dy);
 		////// draw  ///////
 		window.clear();
@@ -135,6 +136,6 @@ int main() {
 		for(int i=0; i<32; i++) f[i].move(-offset);
 		window.display();
 	}
-	CloseConnection();
+	// CloseConnection();
 	return 0;
 }
