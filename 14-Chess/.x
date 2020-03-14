@@ -25,7 +25,7 @@ case "$1" in
 		debug
 	;;
 	e)
-		vi -p app.cpp CMakeLists.txt
+		vi -p app.cpp connector.cpp CMakeLists.txt
 		build;
 		execute;
 	;;
