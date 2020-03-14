@@ -1,6 +1,6 @@
 # README
 
-* Code for https://www.youtube.com/channel/UCC7qpnId5RIQruKDJOt2exw
+* Taken from https://www.youtube.com/watch?v=zH_omFPqMO4&list=PLB_ibvUSN7mzUffhiay5g5GUHyJRO4DYr
 * Uses CMAKE
 
 # Requirements
